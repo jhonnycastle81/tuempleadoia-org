@@ -65,8 +65,34 @@
   .foot-grid a{color:#8896ab;text-decoration:none;display:block;margin-bottom:8px;transition:.2s}
   .foot-grid a:hover{color:var(--gold)}
   .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  /* Nuevas secciones */
+  .support-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+  .support-card{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+  .support-card:hover{box-shadow:0 15px 30px -15px rgba(11,26,51,.2);transform:translateY(-4px)}
+  .support-img{height:180px;background-size:cover;background-position:center}
+  .support-content{padding:28px;flex-grow:1;display:flex;flex-direction:column}
+  .support-content h3{font-size:1.3rem;margin-bottom:10px;color:var(--navy)}
+  .support-content p{font-size:.92rem;color:#555;margin-bottom:20px;flex-grow:1}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+  .blog-card{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:.3s}
+  .blog-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+  .blog-img{height:160px;background-size:cover;background-position:center}
+  .blog-body{padding:24px}
+  .blog-cat{font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+  .blog-body h3{font-size:1.1rem;margin:8px 0}
+  .blog-body p{font-size:.85rem;color:#666}
+  .blog-meta{font-size:.75rem;color:#999;margin-top:12px}
+  /* WhatsApp Flotante */
+  .wa-float{position:fixed;bottom:24px;right:24px;z-index:1000}
+  .wa-btn{width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.2);cursor:pointer;transition:.3s;border:none}
+  .wa-btn:hover{transform:scale(1.08)}
+  .wa-menu{position:absolute;bottom:70px;right:0;background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.15);padding:8px;display:none;flex-direction:column;gap:4px;min-width:180px;border:1px solid var(--line)}
+  .wa-menu.open{display:flex}
+  .wa-item{display:flex;align-items:center;gap:12px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:.9rem;border-radius:6px;transition:.2s}
+  .wa-item:hover{background:#f5f5f5}
+  .wa-flag{font-size:1.3rem}
   @media(max-width:900px){
-    .hero-grid,.cards,.steps,.foot-grid{grid-template-columns:1fr}
+    .hero-grid,.cards,.steps,.foot-grid,.support-grid,.blog-grid{grid-template-columns:1fr}
     .hero h1{font-size:2.2rem}
     nav ul{display:none}
     .step{border-right:none;border-bottom:1px solid var(--line)}
@@ -81,9 +107,10 @@
     <ul>
       <li><a href="#equipo">Equipo IA</a></li>
       <li><a href="#proceso">Metodología</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#apoyo">Contacto</a></li>
     </ul>
-    <a href="#contacto" class="btn">Solicitar Diagnóstico</a>
+    <a href="#apoyo" class="btn">Solicitar Diagnóstico</a>
   </nav>
 </header>
 
@@ -94,7 +121,7 @@
       <h1>Su empresa merece un equipo que <em>nunca duerme</em>.</h1>
       <p>Implementamos empleados de inteligencia artificial especializados en las funciones críticas de su operación: gestión de proyectos, logística, finanzas, recursos humanos, ventas y control de almacén. Basados en metodologías probadas y estándares internacionales.</p>
       <a href="#equipo" class="btn">Conocer el Equipo IA</a>
-      <a href="#contacto" class="btn btn-outline" style="margin-left:12px">Hablar con un Asesor</a>
+      <a href="#apoyo" class="btn btn-outline" style="margin-left:12px">Hablar con un Asesor</a>
       <div class="metrics">
         <div><div class="metric-num">6+</div><div class="metric-label">Roles Especializados</div></div>
         <div><div class="metric-num">4</div><div class="metric-label">Países en Expansión</div></div>
@@ -203,6 +230,77 @@
   </div>
 </section>
 
+<!-- NUEVA SECCIÓN: CONTACTO Y SOPORTE -->
+<section id="apoyo" style="background:var(--paper);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Estamos para ayudarle</span>
+      <h2>¿Cómo podemos apoyarle hoy?</h2>
+      <p>Elija el camino que mejor se adapte a su necesidad. Nuestro equipo de especialistas está listo para responder.</p>
+    </div>
+    <div class="support-grid">
+      <!-- Tarjeta de Contacto / Ventas -->
+      <div class="support-card">
+        <div class="support-img" style="background-image:url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="support-content">
+          <h3>Descubra su Equipo Ideal</h3>
+          <p>¿Aún no sabe qué rol de IA necesita? Nuestros asesores analizarán su operación y le propondrán el combo de empleados digitales que genere mayor retorno, sin compromiso.</p>
+          <a href="https://wa.me/525551000359?text=Hola,%20vengo%20de%20tuempleadoia.org%20y%20quiero%20una%20asesor%C3%ADa%20(Contacto%20M%C3%A9xico)" class="btn" style="text-align:center;">Solicitar Asesoría</a>
+        </div>
+      </div>
+      <!-- Tarjeta de Soporte / Ayuda al Negocio -->
+      <div class="support-card">
+        <div class="support-img" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="support-content">
+          <h3>Ayuda para su Negocio</h3>
+          <p>¿Ya es cliente o tiene una duda técnica? Nuestro equipo de soporte está disponible para resolver incidencias, ajustar configuraciones o guiarle en la integración con sus sistemas.</p>
+          <a href="https://wa.me/51941463997?text=Hola,%20vengo%20de%20tuempleadoia.org%20y%20necesito%20soporte%20t%C3%A9cnico%20(Soporte%20Per%C3%BA)" class="btn btn-outline" style="text-align:center;">Contactar Soporte</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUEVA SECCIÓN: BLOG -->
+<section id="blog" style="background:#fff;">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Recursos</span>
+      <h2>Ideas para su transformación digital</h2>
+      <p>Artículos escritos por nuestro equipo de especialistas en IA y gestión empresarial.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="blog-body">
+          <span class="blog-cat">Gestión</span>
+          <h3>Cómo un PM IA puede salvar su próximo proyecto</h3>
+          <p>Descubra cómo la inteligencia artificial detecta riesgos y optimiza cronogramas antes de que sea tarde.</p>
+          <div class="blog-meta">15 Nov 2026 · 5 min lectura</div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="blog-body">
+          <span class="blog-cat">Finanzas</span>
+          <h3>El fin de las planillas manuales: IA para RR.HH.</h3>
+          <p>Explore cómo los empleados digitales pueden gestionar planillas, CTS y cumplimiento normativo sin errores.</p>
+          <div class="blog-meta">10 Nov 2026 · 7 min lectura</div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="blog-body">
+          <span class="blog-cat">Estrategia</span>
+          <h3>Vender más con un Account Manager IA</h3>
+          <p>Cómo un agente de ventas autónomo puede calificar leads y agendar reuniones 24/7 sin descanso.</p>
+          <div class="blog-meta">05 Nov 2026 · 6 min lectura</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cta" id="contacto">
   <div class="container">
     <h2>Conversemos sobre su fuerza laboral digital</h2>
@@ -222,7 +320,7 @@
         <p>Fuerza laboral digital para empresas de Latinoamérica. Operación en México, Perú, Costa Rica y Colombia.</p>
       </div>
       <div><h4>Soluciones</h4><a href="#equipo">Project Manager IA</a><a href="#equipo">Logística IA</a><a href="#equipo">Contabilidad IA</a><a href="#equipo">Recursos Humanos IA</a></div>
-      <div><h4>Recursos</h4><a href="#proceso">Metodología</a><a href="#equipo">Casos de uso</a><a href="#contacto">Contacto</a></div>
+      <div><h4>Recursos</h4><a href="#proceso">Metodología</a><a href="#blog">Blog</a><a href="#apoyo">Contacto</a></div>
       <div><h4>Contacto</h4>
         <a href="https://wa.me/525551000359">🇲🇽 México: +52 555 100 0359</a>
         <a href="https://wa.me/51941463997">🇵🇪 Perú: +51 941 463 997</a>
@@ -235,5 +333,31 @@
     </div>
   </div>
 </footer>
+
+<!-- WIDGET WHATSAPP FLOTANTE -->
+<div class="wa-float">
+  <div class="wa-menu" id="waMenu">
+    <a href="https://wa.me/525551000359?text=Hola,%20vengo%20de%20tuempleadoia.org" class="wa-item" target="_blank">
+      <span class="wa-flag">🇲🇽</span> México
+    </a>
+    <a href="https://wa.me/51941463997?text=Hola,%20vengo%20de%20tuempleadoia.org" class="wa-item" target="_blank">
+      <span class="wa-flag">🇵🇪</span> Perú
+    </a>
+  </div>
+  <button class="wa-btn" onclick="document.getElementById('waMenu').classList.toggle('open')" aria-label="Abrir opciones de WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z"/></svg>
+  </button>
+</div>
+
+<script>
+  // Cerrar el menú al hacer clic fuera
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('waMenu');
+    const btn = document.querySelector('.wa-btn');
+    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
 </body>
 </html>
