@@ -20,7 +20,7 @@
   nav ul{display:flex;gap:32px;list-style:none}
   nav a{color:#fff;text-decoration:none;font-size:.9rem;font-weight:400;transition:.3s}
   nav a:hover{color:var(--gold)}
-  .btn{display:inline-block;padding:14px 32px;background:var(--gold);color:var(--navy);text-decoration:none;font-weight:600;font-size:.9rem;border-radius:2px;transition:.3s;border:none;cursor:pointer}
+  .btn{display:inline-block;padding:14px 32px;background:var(--gold);color:var(--navy);text-decoration:none;font-weight:600;font-size:.9rem;border-radius:2px;transition:.3s;border:none;cursor:pointer;text-align:center;}
   .btn:hover{background:#d4b876;transform:translateY(-2px)}
   .btn-outline{background:transparent;border:1.5px solid var(--gold);color:var(--gold)}
   .btn-outline:hover{background:var(--gold);color:var(--navy)}
@@ -91,6 +91,14 @@
   .wa-item{display:flex;align-items:center;gap:12px;padding:10px 14px;text-decoration:none;color:var(--ink);font-size:.9rem;border-radius:6px;transition:.2s}
   .wa-item:hover{background:#f5f5f5}
   .wa-flag{font-size:1.3rem}
+  /* Modal */
+  .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(11,26,51,0.8);z-index:2000;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+  .modal-box{background:var(--paper);padding:36px;border-radius:8px;width:90%;max-width:500px;color:var(--ink);border-top:4px solid var(--gold);position:relative;}
+  .modal-box h3{font-size:1.5rem;margin-bottom:20px;color:var(--navy);}
+  .modal-box label{font-size:.85rem;font-weight:600;color:var(--navy);}
+  .modal-box input, .modal-box textarea{width:100%;padding:12px;margin-bottom:15px;border:1px solid #ccc;border-radius:4px;font-family:inherit;}
+  .modal-box input:focus, .modal-box textarea:focus{outline:none;border-color:var(--gold);}
+  .modal-close{position:absolute;top:15px;right:20px;font-size:1.5rem;cursor:pointer;color:#999;border:none;background:none;}
   @media(max-width:900px){
     .hero-grid,.cards,.steps,.foot-grid,.support-grid,.blog-grid{grid-template-columns:1fr}
     .hero h1{font-size:2.2rem}
@@ -230,7 +238,7 @@
   </div>
 </section>
 
-<!-- NUEVA SECCIÓN: CONTACTO Y SOPORTE -->
+<!-- CONTACTO Y SOPORTE (Con Modales) -->
 <section id="apoyo" style="background:var(--paper);">
   <div class="container">
     <div class="section-head">
@@ -239,27 +247,25 @@
       <p>Elija el camino que mejor se adapte a su necesidad. Nuestro equipo de especialistas está listo para responder.</p>
     </div>
     <div class="support-grid">
-      <!-- Tarjeta de Contacto / Ventas -->
       <div class="support-card">
         <div class="support-img" style="background-image:url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop');"></div>
         <div class="support-content">
           <h3>Descubra su Equipo Ideal</h3>
           <p>¿Aún no sabe qué rol de IA necesita? Nuestros asesores analizarán su operación y le propondrán el combo ideal, sin compromiso.</p>
           <div style="display:flex; flex-direction:column; gap:10px;">
-            <a href="https://wa.me/525551000359?text=Hola,%20vengo%20de%20tuempleadoia.org%20y%20quiero%20una%20asesor%C3%ADa" class="btn" style="text-align:center;">💬 Solicitar Asesoría (WhatsApp)</a>
-            <a href="mailto:contacto@tuempleadoia.org?subject=Solicitud%20de%20Asesor%C3%ADa%20Web&body=Hola%20equipo%20de%20TuEmpleadoIA,%0A%0AMe%20gustar%C3%ADa%20recibir%20una%20asesor%C3%ADa%20para%20mi%20negocio.%0A%0AMis%20datos%20son:%0A-%20Nombre:%0A-%20Empresa:%0A-%20Necesidad:" class="btn btn-outline" style="text-align:center;">✉️ Enviar Correo a Contacto</a>
+            <a href="https://wa.me/525551000359?text=Hola,%20vengo%20de%20tuempleadoia.org%20y%20quiero%20una%20asesor%C3%ADa" class="btn">💬 Solicitar Asesoría (WhatsApp)</a>
+            <button class="btn btn-outline" onclick="abrirModal('contacto')">✉️ Enviar Correo a Contacto</button>
           </div>
         </div>
       </div>
-      <!-- Tarjeta de Soporte -->
       <div class="support-card">
         <div class="support-img" style="background-image:url('https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=800&auto=format&fit=crop');"></div>
         <div class="support-content">
           <h3>Ayuda para su Negocio</h3>
           <p>¿Ya es cliente o tiene una duda técnica? Nuestro equipo de soporte está disponible para resolver incidencias o guiarle en sus sistemas.</p>
           <div style="display:flex; flex-direction:column; gap:10px;">
-            <a href="https://wa.me/51941463997?text=Hola,%20vengo%20de%20tuempleadoia.org%20y%20necesito%20soporte%20t%C3%A9cnico" class="btn btn-outline" style="text-align:center; border-color: var(--navy); color: var(--navy);">💬 Contactar Soporte (WhatsApp)</a>
-            <a href="mailto:soporte@tuempleadoia.org?subject=Reporte%20de%20Soporte%20T%C3%A9cnico&body=Hola%20equipo%20de%20Soporte,%0A%0AYa%20soy%20cliente%20y%20necesito%20ayuda%20con%20mi%20sistema.%0A%0AMis%20datos%20son:%0A-%20Nombre:%0A-%20Empresa:%0A-%20Descripci%C3%B3n%20del%20problema:" class="btn" style="text-align:center; background: var(--line); color: var(--ink);">✉️ Enviar Correo a Soporte</a>
+            <a href="https://wa.me/51941463997?text=Hola,%20vengo%20de%20tuempleadoia.org%20y%20necesito%20soporte%20t%C3%A9cnico" class="btn btn-outline" style="border-color: var(--navy); color: var(--navy);">💬 Contactar Soporte (WhatsApp)</a>
+            <button class="btn" style="background: var(--line); color: var(--ink);" onclick="abrirModal('soporte')">✉️ Enviar Correo a Soporte</button>
           </div>
         </div>
       </div>
@@ -267,7 +273,6 @@
   </div>
 </section>
 
-<!-- NUEVA SECCIÓN: BLOG -->
 <section id="blog" style="background:#fff;">
   <div class="container">
     <div class="section-head">
@@ -312,8 +317,8 @@
     <h2>Conversemos sobre su fuerza laboral digital</h2>
     <p>Agende un diagnóstico sin costo. Nuestro equipo evaluará qué roles de IA generan mayor retorno para su empresa.</p>
     <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
-      <a href="https://wa.me/525551000359?text=Hola,%20vengo%20de%20tuempleadoia.org%20y%20quiero%20un%20diagn%C3%B3stico%20(Contacto%20M%C3%A9xico)" class="btn">🇲🇽 Agendar México</a>
-      <a href="https://wa.me/51941463997?text=Hola,%20vengo%20de%20tuempleadoia.org%20y%20quiero%20un%20diagn%C3%B3stico%20(Contacto%20Per%C3%BA)" class="btn">🇵🇪 Agendar Perú</a>
+      <a href="https://wa.me/525551000359?text=Hola,%20vengo%20de%20tuempleadoia.org" class="btn">🇲🇽 Agendar México</a>
+      <a href="https://wa.me/51941463997?text=Hola,%20vengo%20de%20tuempleadoia.org" class="btn">🇵🇪 Agendar Perú</a>
     </div>
   </div>
 </section>
@@ -343,20 +348,39 @@
 <!-- WIDGET WHATSAPP FLOTANTE -->
 <div class="wa-float">
   <div class="wa-menu" id="waMenu">
-    <a href="https://wa.me/525551000359?text=Hola,%20vengo%20de%20tuempleadoia.org" class="wa-item" target="_blank">
-      <span class="wa-flag">🇲🇽</span> México
-    </a>
-    <a href="https://wa.me/51941463997?text=Hola,%20vengo%20de%20tuempleadoia.org" class="wa-item" target="_blank">
-      <span class="wa-flag">🇵🇪</span> Perú
-    </a>
+    <a href="https://wa.me/525551000359?text=Hola,%20vengo%20de%20tuempleadoia.org" class="wa-item" target="_blank"><span class="wa-flag">🇲🇽</span> México</a>
+    <a href="https://wa.me/51941463997?text=Hola,%20vengo%20de%20tuempleadoia.org" class="wa-item" target="_blank"><span class="wa-flag">🇵🇪</span> Perú</a>
   </div>
-  <button class="wa-btn" onclick="document.getElementById('waMenu').classList.toggle('open')" aria-label="Abrir opciones de WhatsApp">
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z"/></svg>
-  </button>
+  <button class="wa-btn" onclick="document.getElementById('waMenu').classList.toggle('open')"><svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z"/></svg></button>
+</div>
+
+<!-- MODAL DE CAPTURA (API) -->
+<div id="modal-lead" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="cerrarModal()">&times;</button>
+    <h3 id="modal-titulo">Enviar Mensaje</h3>
+    <form id="form-lead" onsubmit="enviarLead(event)">
+      <input type="hidden" id="tipo" value="contacto">
+      <label>Nombre Completo:</label>
+      <input type="text" id="nombre" required placeholder="Ej. Juan Pérez">
+      <label>Correo Electrónico:</label>
+      <input type="email" id="email" required placeholder="juan@empresa.com">
+      <label>Empresa (Opcional):</label>
+      <input type="text" id="empresa" placeholder="Nombre de tu empresa">
+      <label>Mensaje:</label>
+      <textarea id="mensaje" rows="4" required>Hola, me gustaría recibir más información sobre los empleados de IA para mi negocio.</textarea>
+      <div style="display:flex; gap:10px; margin-top:10px;">
+        <button type="submit" class="btn" id="btn-enviar" style="flex:1;">Enviar Mensaje</button>
+      </div>
+    </form>
+    <div id="mensaje-exito" style="display:none; color:var(--navy); font-weight:bold; margin-top:15px; text-align:center;">
+      ✅ ¡Mensaje enviado! Nuestros agentes de IA ya están procesando tu solicitud.
+    </div>
+  </div>
 </div>
 
 <script>
-  // Cerrar el menú al hacer clic fuera
+  // Lógica del menú flotante de WhatsApp
   document.addEventListener('click', function(e) {
     const menu = document.getElementById('waMenu');
     const btn = document.querySelector('.wa-btn');
@@ -364,6 +388,58 @@
       menu.classList.remove('open');
     }
   });
+
+  // Lógica del Modal y la API
+  function abrirModal(tipo) {
+    document.getElementById('tipo').value = tipo;
+    document.getElementById('modal-titulo').innerText = tipo === 'contacto' ? 'Contactar a Ventas' : 'Soporte Técnico';
+    document.getElementById('modal-lead').style.display = 'flex';
+  }
+
+  function cerrarModal() {
+    document.getElementById('modal-lead').style.display = 'none';
+    document.getElementById('form-lead').style.display = 'block';
+    document.getElementById('mensaje-exito').style.display = 'none';
+    document.getElementById('btn-enviar').innerText = 'Enviar Mensaje';
+    document.getElementById('btn-enviar').disabled = false;
+  }
+
+  async function enviarLead(event) {
+    event.preventDefault();
+    const btn = document.getElementById('btn-enviar');
+    btn.innerText = "Enviando...";
+    btn.disabled = true;
+
+    const data = {
+      nombre: document.getElementById('nombre').value,
+      email: document.getElementById('email').value,
+      empresa: document.getElementById('empresa').value || "No especificada",
+      mensaje: document.getElementById('mensaje').value,
+      tipo: document.getElementById('tipo').value
+    };
+
+    try {
+      const response = await fetch('https://api-dashboard.camisale.work/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      
+      if (response.ok) {
+        document.getElementById('form-lead').style.display = 'none';
+        document.getElementById('mensaje-exito').style.display = 'block';
+        setTimeout(cerrarModal, 3500);
+      } else {
+        alert("Hubo un error. Por favor intenta por WhatsApp.");
+        btn.innerText = "Enviar Mensaje";
+        btn.disabled = false;
+      }
+    } catch (error) {
+      alert("Error de conexión. Intenta por WhatsApp.");
+      btn.innerText = "Enviar Mensaje";
+      btn.disabled = false;
+    }
+  }
 </script>
 </body>
 </html>
